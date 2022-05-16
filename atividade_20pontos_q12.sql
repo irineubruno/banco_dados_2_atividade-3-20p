@@ -2,6 +2,11 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS pc_cargo_cad$$
 CREATE PROCEDURE pc_cargo_cad (IN pc_nome varchar(50), IN pc_salario decimal(10,2), OUT pc_msg varchar(200))
 BEGIN
+/*
+Data: 15/05/2022
+Autor: Bruno Irineu 
+Objetivo: cadastrar e verificar dados do cargo.
+*/
 	-- VALIDAR CARGO
 	SET @valor =( select count(*) from cargo as c where c.cargo_nome = pc_nome);
 	IF(@valor > 0 ) THEN
